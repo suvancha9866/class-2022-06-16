@@ -1,0 +1,24 @@
+---
+title: "Height 2022-06-16"
+author: "Suvan Chatakondu"
+date: '2022-06-17'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(primer.data)
+```
+```{r, warning= FALSE}
+
+nhanes |> select(height) |> ggplot(nhanes, mapping = aes(x = height)) + geom_histogram(binwidth = 10, color = "black", fill = "blue") + theme_minimal() + 
+  labs(title = "Heights of Americans who participated in\nthe NHANES Survey",
+       subtitle = "Americans are tall",
+       x = "Height (cm)",
+       y = "Count",
+       caption = "NHANES Survey")+
+  facet(~ gender)
+```
+
+
